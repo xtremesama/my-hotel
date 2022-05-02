@@ -16,7 +16,7 @@ const Header = () => {
     useEffect(() => {
        // Load menu links from the API Gateway
         loadMenuLinksData();
-    });
+    }, [menuLinksData.href]);
 
     return (
         <header id="intro">

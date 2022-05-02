@@ -1,8 +1,39 @@
-import React from "react";
-import accessibilityData from "./data/accessibility.json";
-import servicesData from "./data/services.json";
+import React, {useEffect, useState} from "react";
+//import accessibilityData from "./data/accessibility.json";
+//import servicesData from "./data/services.json";
 
 const HotelInfo = () => {
+    const [servicesData, setServicesData] = useState([]);
+    const [accessibilityData, setAccessibilityData] = useState([]);
+
+    const loadServicesData = async () => {
+        // Query API Gateway
+        const response = await fetch("https://kee1b9u4r0.execute-api.us-east-1.amazonaws.com/Production/services");
+        let json = await response.json();
+
+        // Assign response data to our state variable
+        setServicesData(json);
+    };
+
+    const loadAccessibilityData = async () => {
+        // Query API Gateway
+        const response = await fetch("https://kee1b9u4r0.execute-api.us-east-1.amazonaws.com/Production/accessibilities");
+        let json = await response.json();
+
+        // Assign response data to our state variable
+        setAccessibilityData(json);
+    };
+
+    useEffect(() => {
+        // Load data from the API Gateway
+        loadServicesData();
+    }, [servicesData.name]);
+
+    useEffect(() => {
+        // Load data from the API Gateway
+        loadAccessibilityData();
+    }, [accessibilityData.name]);
+
     return (
         <div className="scene" id="hotelinfo">
             <article className="heading">
