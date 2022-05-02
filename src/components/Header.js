@@ -33,8 +33,8 @@ const Header = () => {
                     <div className="brand"><a href="#welcome">Landon <span>Hotel</span></a></div>
                     <ul>
                         {
-                            menuLinksData.map((link) =>
-                                <li><a className={`icon ${link.class}`} href={link.href}><span>{link.text}</span></a></li>
+                            menuLinksData.map((link, index) =>
+                                <li key={`menu-${index}`}><a className={`icon ${link.class}`} href={link.href}><span>{link.text}</span></a></li>
                             )
                         }
                     </ul>

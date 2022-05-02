@@ -23,7 +23,7 @@ const Welcome = () => {
             <article className="content">
                 <div className="gallery">
                     {
-                        galleryImagesData.map((imageInfo) => <img className={imageInfo.class} src={imageInfo.src} alt={imageInfo.alt} /> )
+                        galleryImagesData.map((imageInfo, index) => <img key={`gallery-img-${index}`} className={imageInfo.class} src={imageInfo.src} alt={imageInfo.alt} /> )
                     }
                 </div>
                 <h1>Welcome to the Landon&nbsp;Hotel</h1>

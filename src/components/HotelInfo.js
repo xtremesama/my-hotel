@@ -56,7 +56,7 @@ const HotelInfo = () => {
                     <p>Our services and amenities are designed to make your travel easy, your stay comfortable, and your experience one-of-a-kind.</p>
                     <ul>
                         {
-                            servicesData.map((item) => <li>{item.name}</li>)
+                            servicesData.map((item, index) => <li key={`services-${index}`}>{item.name}</li>)
                         }
                     </ul>
                 </section>
@@ -65,7 +65,7 @@ const HotelInfo = () => {
                     <p>We're committed to maintaining the same quality of service for every individual. We offer the following facilities for those with special needs:</p>
                     <ul>
                         {
-                            accessibilityData.map((item) => <li>{item.name}</li>)
+                            accessibilityData.map((item, index) => <li key={`accessibility-${index}`}>{item.name}</li>)
                         }
                     </ul>
                 </section>
